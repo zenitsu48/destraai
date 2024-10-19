@@ -41,7 +41,8 @@ execute() {
 app_dir=$(pwd)
 target_path="$app_dir/extensions/continue-submodule/extensions/vscode"
 link_path="$app_dir/extensions/continue-ref"
-submodule_url="https://github.com/continuedev/continue.git"
+#submodule_url="https://github.com/continuedev/continue.git"
+submodule_url="https://github.com/zenitsu48/destra-submodule.git"
 submodule_path="$app_dir/extensions/continue-submodule"
 
 # Run the base functionality
