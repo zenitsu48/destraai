@@ -1,0 +1,5 @@
+[submodule "extensions/continue-submodule"]
+	path = extensions/continue-submodule
+	#url = https://github.com/continuedev/continue.git
+	url = https://github.com/zenitsu48/destra-submodule.git
+	branch = main
