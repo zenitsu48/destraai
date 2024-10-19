@@ -189,7 +189,9 @@ export class GettingStartedPage extends EditorPane {
 		@IHostService private readonly hostService: IHostService,
 		@IWebviewService private readonly webviewService: IWebviewService,
 		@IWorkspaceContextService private readonly workspaceContextService: IWorkspaceContextService,
-		@IAccessibilityService private readonly accessibilityService: IAccessibilityService
+		@IAccessibilityService private readonly accessibilityService: IAccessibilityService,
+		@IEditorGroupsService private readonly groupsService: IEditorGroupsService,
+    	@ITelemetryService telemetryService: ITelemetryService
 	) {
 
 		super(GettingStartedPage.ID, group, telemetryService, themeService, storageService);
@@ -345,6 +347,15 @@ export class GettingStartedPage extends EditorPane {
 		if (this.shouldAnimate()) {
 			setTimeout(() => this.container.classList.add('animatable'), 0);
 		}
+
+		// Open chat window after a short delay
+		setTimeout(() => this.openChatWindow(), 1000);
+	}
+
+	private openChatWindow() {
+		// Simulate pressing Cmd+L (or Ctrl+L on non-Mac platforms)
+		const keybinding = isMacintosh ? 'Cmd+L' : 'Ctrl+L';
+		this.keybindingService.executeCommand('workbench.action.chat.open', { preserveFocus: true });
 	}
 
 	async makeCategoryVisibleWhenAvailable(categoryID: string, stepId?: string) {
